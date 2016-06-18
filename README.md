@@ -1,6 +1,4 @@
-# Zoom plugin for Chartist.js
-
-Please visit http://gionkunz.github.io/chartist-js/plugins.html for more information.
+# Range plugin for Chartist.js
 
 ## Available options and their defaults
 
