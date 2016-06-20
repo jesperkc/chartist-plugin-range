@@ -18,4 +18,3 @@ build:
 # tests
 test:
   - 'clean:tmp'
-  - 'jasmine'

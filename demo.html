@@ -4,70 +4,84 @@
   <title>chartist zoom</title>
   <link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css">
   <style>
-	  .ct-zoom-rect {
-		  fill: rgba(200, 100, 100, 0.3);
-		  stroke: red;
+	  .ct-range-rect {
+		  fill: rgba(255, 255, 255, 0);
+		  stroke: transparent;
 	  }
+	  .ct-range-rect-left, .ct-range-rect-right {
+		  fill: rgba(255, 255, 255, 0.8);
+          stroke: rgb(255, 255, 255);
+	  }
+      .ct-range-rect-left-line, .ct-range-rect-right-line{
+          stroke: rgba(0, 0, 0, 0.5);
+      }
     body {
-      min-height: 2000px;
+      min-height: 100%;
     }
-    .fixed {
-      position:fixed;
+    .ct-range-rect-handle-left, .ct-range-rect-handle-right{
+        stroke:rgba(0, 0, 0, 0.5);
+          fill: white;
+    }
+    .ct-point{
+        stroke-width: 0;
+    }
+    .ct-line{
+        stroke-width: 2px;
     }
   </style>
 </head>
 <body>
-	<h1>Chartist Zoom Plugin</h1>
-	<p>Use left mouse button to drag a zoom box. Reset zoom with right mouse button.</p>
+	<h1>Chartist Range Plugin</h1>
+	<p>Use left mouse button to drag a range box. Reset range with right mouse button.</p>
 	<p><a id="reset" href="#" style="display:none" onclick='return reset()'>Reset</a></p>
 	<div id="c1" class="ct-chart ct-golden-section" style="max-width:800px"></div>
-	<div id="c2" class="fixed ct-chart ct-golden-section" style="max-width:800px"></div>
+	<div id="c2" class="ct-chart ct-golden-section" style="max-width:800px"></div>
 	<script src="bower_components/chartist/dist/chartist.js"></script>
-	<script src="dist/chartist-plugin-zoom.js"></script>
+	<script src="dist/chartist-plugin-range.js"></script>
 
 	<script>
 		var data  = {
-			series: [[
-				{x: 1, y: 100},
-				{x: 2, y: 50},
-				{x: 3, y: 25},
-				{x: 4, y: 66},
-				{x: 5, y: 44},
-				{x: 6, y: 22},
-				
-			]]
+            labels: [],
+			series: [[]]
 			};
-			
-		var options = {      
+		for (var i=1; i<8; i++){
+            data.series[0].push(
+				{x: new Date('01-0'+ i +'-2016'), y: Math.floor(Math.random()*50)}
+			)
+        }
+		for (var i=1; i<8; i++){
+            data.labels.push(
+				'01-0'+ i +'-2016'
+			)
+        }
+		var options = {
 			chartPadding: {
-				top: 50,
-				right: 30,
+				top: 20,
+				right: 0,
 				left: 40,
 				bottom: 50
 			},
+            fullWidth: true,
+            showArea: true,
 			axisX: {
-				type: Chartist.AutoScaleAxis
-			},
+                labelInterpolationFnc: function(value) {
+                    return new Date(value);
+                }
+            },
 			axisY: {
-				type: Chartist.AutoScaleAxis
+				type: Chartist.AutoScaleAxis,
+                low: 0
 			},
 			plugins : [
-				Chartist.plugins.zoom({ onZoom : onZoom })
+				Chartist.plugins.range({ onrange : onRange })
 			]
 		};
 		var chart1 = Chartist.Line('#c1', data, options);
     var chart2 = Chartist.Line('#c2', data, options);
 		
-		var resetFnc;
-		function onZoom(chart, reset) {
-			document.getElementById('reset').style.display = 'inline';
-			resetFnc = reset;					
-		}
-		
-		function reset() {
-			resetFnc && resetFnc();
-			resetFnc = null;
-			document.getElementById('reset').style.display = 'none';
+		function onRange(chart) {
+            console.log('From ', chart.options.selectedRange.low);
+            console.log('To ', chart.options.selectedRange.high);
 		}
 		
 	</script>

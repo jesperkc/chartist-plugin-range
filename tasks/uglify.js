@@ -18,7 +18,7 @@ module.exports = function (grunt) {
         sourceMapIncludeSources: true
       },
       files: {
-        '<%= pkg.config.dist %>/chartist-plugin-zoom.min.js': ['<%= pkg.config.dist %>/chartist-plugin-zoom.js']
+        '<%= pkg.config.dist %>/chartist-plugin-range.min.js': ['<%= pkg.config.dist %>/chartist-plugin-range.js']
       }
     }
   };
