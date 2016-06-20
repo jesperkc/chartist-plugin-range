@@ -22,7 +22,7 @@
     'use strict';
 
     var defaultOptions = {
-      // onrange
+      // onRange
     };
 
 
@@ -39,7 +39,7 @@
 
         var rect, svg, axisX, axisY, chartRect;
         var downPosition;
-        var onrange = options.onrange;
+        var onRange = options.onRange;
         var ongoingTouches = [];
 
         chart.on('draw', function (data) {
@@ -208,7 +208,7 @@
               chart.options.selectedRange = { low: project(x1, axisX), high: project(x2, axisX) };
 
               //chart.update(chart.data, chart.options);
-              onrange && onrange(chart);
+              onRange && onRange(chart);
             }else{
                 reset();
             }

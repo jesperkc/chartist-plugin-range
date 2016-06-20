@@ -4,8 +4,7 @@
 
 ```javascript
 var defaultOptions = {
-  onZoom : undefined  // A callback (chart, resetFnc) => void which will be called on zoom. 
-                      // resetFnc() will reset zoom.
+  onRange : undefined  // A callback (chart) => void which will be called on range selection. 
 };
 ```
 
@@ -20,8 +19,8 @@ var chart = new Chartist.Line('.ct-chart', {
     type: Chartist.AutoScaleAxis,
   },
   plugins: [
-    Chartist.plugins.zoom({
-      onZoom : function(chart, reset) { storeReset(reset); };
+    Chartist.plugins.range({
+      onRange : function(chart) {  };
     })
   ]
 });
@@ -29,7 +28,7 @@ var chart = new Chartist.Line('.ct-chart', {
 
 ```css
 /* style the svg rect */
-.ct-zoom-rect {
+.ct-range-rect {
 	fill: rgba(200, 100, 100, 0.3);
   stroke: red;
 }
