@@ -181,9 +181,8 @@
         }
 
         var reset = function () {
-          chart.options.axisX.highLow = null;
-          chart.options.axisY.highLow = null;
-          chart.update(chart.data, chart.options);
+          chart.options.selectedRange = null;
+          onRange && onRange(chart);
         };
 
         function onMouseUp(event) {
@@ -210,7 +209,7 @@
               //chart.update(chart.data, chart.options);
               onRange && onRange(chart);
             }else{
-                reset();
+              reset();
             }
         }
 
@@ -342,9 +341,7 @@
           var end_tick = start_tick + 1;
           if (end_tick < axis.ticks.length){
               var end_date = Number(new Date(axis.ticks[Math.floor(value / axis.stepLength) + 1])); 
-              console.log(start_date, end_date);
               var date_pct = start_date + ((end_date - start_date) * pct);
-              //console.log(new Date(date_pct));
               return new Date(date_pct); //axis.ticks[tick];
           }else{
               return new Date(start_date);            

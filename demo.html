@@ -48,8 +48,6 @@
             data.series[0].push(
 				{x: new Date('01-0'+ i +'-2016'), y: Math.floor(Math.random()*50)}
 			)
-        }
-		for (var i=1; i<8; i++){
             data.labels.push(
 				'01-0'+ i +'-2016'
 			)
@@ -65,7 +63,8 @@
             showArea: true,
 			axisX: {
                 labelInterpolationFnc: function(value) {
-                    return new Date(value);
+                    var d = new Date(value);
+                    return d.getDate()+'/'+(d.getMonth()+1) + ' - ' + d.getFullYear();
                 }
             },
 			axisY: {
@@ -73,15 +72,17 @@
                 low: 0
 			},
 			plugins : [
-				Chartist.plugins.range({ onrange : onRange })
+				Chartist.plugins.range({ onRange : onRange })
 			]
 		};
 		var chart1 = Chartist.Line('#c1', data, options);
     var chart2 = Chartist.Line('#c2', data, options);
 		
 		function onRange(chart) {
-            console.log('From ', chart.options.selectedRange.low);
-            console.log('To ', chart.options.selectedRange.high);
+            if (chart.options.selectedRange){
+                console.log('From ', chart.options.selectedRange.low);
+                console.log('To ', chart.options.selectedRange.high);
+            }
 		}
 		
 	</script>
