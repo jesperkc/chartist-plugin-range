@@ -2,33 +2,39 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Chartist-plugin-range by jesperkc</title>
+    <title>Chartist plugin range by jesperkc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <!--link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen"-->
+    <link rel="stylesheet" type="text/css" href="stylesheets/kc.css" media="screen">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.css">
   <style>
-	  .ct-range-rect {
-		  fill: rgba(255, 255, 255, 0);
-		  stroke: transparent;
-	  }
-	  .ct-range-rect-left, .ct-range-rect-right {
-		  fill: rgba(255, 255, 255, 0.8);
-          stroke: rgb(255, 255, 255);
-	  }
-      .ct-range-rect-left-line, .ct-range-rect-right-line{
-          stroke: rgba(0, 0, 0, 0.5);
-      }
+    .ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
+        stroke: #991587;
+    }
+    .ct-series-a .ct-area, .ct-series-a .ct-slice-pie {
+        fill: #991587;
+    }
+    .ct-range-rect {
+        fill: rgba(255, 255, 255, 0);
+        stroke: transparent;
+    }
+    .ct-range-rect-left, .ct-range-rect-right {
+        fill: rgba(255, 255, 255, 0.8);
+        stroke: rgb(255, 255, 255);
+    }
+    .ct-range-rect-left-line, .ct-range-rect-right-line{
+        stroke: rgba(0, 0, 0, 0.5);
+    }
     body {
-      min-height: 100%;
+        min-height: 100%;
     }
     .ct-range-rect-handle-left, .ct-range-rect-handle-right{
         stroke:rgba(0, 0, 0, 0.5);
-          fill: white;
+        fill: white;
     }
     .ct-point{
         stroke-width: 0;
@@ -41,16 +47,18 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Chartist-plugin-range</h1>
+      <h1 class="project-name">Chartist Plugin Range</h1>
       <h2 class="project-tagline"></h2>
       <a href="https://github.com/jesperkc/chartist-plugin-range" class="btn">View on GitHub</a>
       <a href="https://github.com/jesperkc/chartist-plugin-range/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/jesperkc/chartist-plugin-range/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="https://www.twitter.com/jesperkc" target="_blank" class="btn">Twitter</a>
+      <a href="https://www.codepen.io/jesperkc" target="_blank" class="btn">Codepen</a>
     </section>
 
     <section class="main-content">
       <h1>Chartist Range Plugin</h1>
-	<p>Use left mouse button to drag a range box. Reset range with right mouse button.</p>
+	<p>Use left mouse button to drag a range box.</p>
 	<p><a id="reset" href="#" style="display:none" onclick='return reset()'>Reset</a></p>
 	<div id="c1" class="ct-chart ct-golden-section" style="max-width:800px"></div>
 	<div id="c2" class="ct-chart ct-golden-section" style="max-width:800px"></div>
