@@ -8,9 +8,22 @@
     background: linear-gradient(135deg, #a7ff66 0%, #009ee2 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff26aa', endColorstr='@io-blue', GradientType=1);
     color: #001760;
+    text-align: left;
+}
+a{
+    text-decoration: underline;
 }
 .page-header a{
     color: #fff;
+}
+.page-header h1{
+    text-align: center;
+}
+.github-links a{
+    margin-right: 15px;
+}
+.social-links{
+    float: right;
 }
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6{
     color: #333;
