@@ -1,3 +1,6 @@
+.ct-chart-range {
+  cursor: col-resize;
+}
 .ct-range-rect {
   fill: rgba(255, 255, 255, 0);
   stroke: transparent;

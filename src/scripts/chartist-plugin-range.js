@@ -33,6 +33,7 @@
             'clip-path': 'url(#range-mask)'
           });
         }
+
       });
 
       chart.on('created', function (data) {
@@ -40,6 +41,9 @@
         axisY = data.axisY;
         chartRect = data.chartRect;
         svg = data.svg._node;
+
+        data.svg.attr({'class':data.svg.attr('class') + ' ct-chart-range'});
+
         rect = data.svg.elem('g', {}, 'ct-range-rect');
         var rectBox = data.svg.elem('rect', {width: '100', height: '100', x:0, y:0}, 'ct-range-rect-box');
         rect.append(rectBox);
