@@ -29,7 +29,21 @@ var chart = new Chartist.Line('.ct-chart', {
 ```css
 /* style the svg rect */
 .ct-range-rect {
-	fill: rgba(200, 100, 100, 0.3);
-  stroke: red;
+  fill: rgba(255, 255, 255, 0);
+  stroke: transparent;
+}
+.ct-range-rect-left,
+.ct-range-rect-right {
+  fill: rgba(255, 255, 255, 0.8);
+  stroke: #ffffff;
+}
+.ct-range-rect-left-line,
+.ct-range-rect-right-line {
+  stroke: rgba(0, 0, 0, 0.5);
+}
+.ct-range-rect-handle-left,
+.ct-range-rect-handle-right {
+  stroke: rgba(0, 0, 0, 0.5);
+  fill: #fff;
 }
 ```
