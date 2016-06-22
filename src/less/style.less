@@ -1,0 +1,24 @@
+@selected-range-fill: rgba(255, 255, 255, 0);
+@selected-range-stroke: transparent;
+
+@outside-range-fill: rgba(255, 255, 255, 0.8);
+@outside-range-stroke: rgb(255, 255, 255);
+
+@handlebar-line-stroke: rgba(0, 0, 0, 0.5);
+@handlebar-fill: #fff;
+@handlebar-stroke: rgba(0, 0, 0, 0.5);
+.ct-range-rect {
+    fill: @selected-range-fill;
+    stroke: @selected-range-stroke;
+}
+.ct-range-rect-left, .ct-range-rect-right {
+    fill: @outside-range-fill;
+    stroke: @outside-range-stroke;
+}
+.ct-range-rect-left-line, .ct-range-rect-right-line{
+    stroke: @handlebar-line-stroke;
+}
+.ct-range-rect-handle-left, .ct-range-rect-handle-right{
+    stroke: @handlebar-stroke;
+    fill: @handlebar-fill;
+}
