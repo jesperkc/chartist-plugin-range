@@ -54,6 +54,7 @@
                 }
             },
 			axisY: {
+				onlyInteger: true,
 				type: Chartist.AutoScaleAxis,
                 low: 0
 			},
@@ -62,6 +63,38 @@
 			]
 		};
 		var chart1 = Chartist.Line('#c1', data, options);
+
+
+		var data  = {
+			series: [[]]
+			};
+		for (var i=1; i<20; i++){
+            data.series[0].push(
+				{x: i, y: Math.floor(Math.random()*50)}
+			)
+        }
+		var options = {
+			chartPadding: {
+				top: 20,
+				right: 0,
+				left: 40,
+				bottom: 50
+			},
+            fullWidth: true,
+            showArea: true,
+			axisX: {
+				onlyInteger: true,
+				type: Chartist.AutoScaleAxis,
+            },
+			axisY: {
+				onlyInteger: true,
+				type: Chartist.AutoScaleAxis,
+                low: 0
+			},
+			plugins : [
+				Chartist.plugins.range({ onRange : onRange })
+			]
+		};
     	var chart2 = Chartist.Line('#c2', data, options);
 		
 		function onRange(chart) {
