@@ -1,7 +1,16 @@
 .page-header{
-    color: #FFFFFF;
-    text-align: center;
-    background: #991587;
+    background: #a7ff66;
+    background: -moz-linear-gradient(-45deg, #a7ff66 0%, #009ee2 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #ff26aa), color-stop(100%, #009ee2));
+    background: -webkit-linear-gradient(-45deg, #a7ff66 0%, #009ee2 100%);
+    background: -o-linear-gradient(-45deg, #a7ff66 0%, #009ee2 100%);
+    background: -ms-linear-gradient(-45deg, #a7ff66 0%, #009ee2 100%);
+    background: linear-gradient(135deg, #a7ff66 0%, #009ee2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff26aa', endColorstr='@io-blue', GradientType=1);
+    color: #001760;
+}
+.page-header a{
+    color: #fff;
 }
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6{
     color: #333;
